@@ -1,0 +1,11 @@
+{
+  "name": "test-technique",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "(cd backend && symfony server:start) | (cd frontend && npm run dev)",
+    "postinstall": "(cd frontend && npm install) && (cd backend && composer install)"
+  },
+  "dependencies": {}
+}

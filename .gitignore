@@ -1,0 +1,9 @@
+/.idea
+frontend/node_modules
+frontend/.idea
+frontend/.git
+frontend/dist
+backend/.idea
+backend/var
+backend/vendor
+backend/.git
