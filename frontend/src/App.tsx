@@ -1,8 +1,8 @@
 import './style.css';
-import Example from "./app/containers/Example";
+import { FindNumbers } from './app/containers/FindNumbers';
 
 function App() {
-  return <Example />;
+  return <FindNumbers />;
 }
 
 export default App;

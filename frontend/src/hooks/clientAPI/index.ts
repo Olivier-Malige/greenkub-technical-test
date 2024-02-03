@@ -1,7 +1,11 @@
-import PingEndpoint from "./example/ping";
+import pingEndpoint from './example/ping';
+import findTwoNumbersEndpoint from './numbers/findTwoNumbers';
 
 export default {
-    example: {
-        ping: PingEndpoint
-    }
-}
+  example: {
+    ping: pingEndpoint,
+  },
+  numbers: {
+    findTwoNumbers: findTwoNumbersEndpoint,
+  },
+};

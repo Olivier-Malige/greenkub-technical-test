@@ -8,6 +8,9 @@ import createSagaMiddleware from 'redux-saga';
 
 import { createReducer } from './reducers';
 
+import numbersReducer from './numbers/slice';
+import rootSaga from './rootSaga';
+
 export function configureAppStore() {
   const reduxSagaMonitorOptions = {};
   const sagaMiddleware = createSagaMiddleware(reduxSagaMonitorOptions);
@@ -24,11 +27,15 @@ export function configureAppStore() {
   ];
 
   const store = configureStore({
-    reducer: createReducer(),
+    reducer: createReducer({
+      numbers: numbersReducer,
+    }),
     middleware: (gDM) => gDM().concat(middlewares),
     devTools: window.location.hostname === 'localhost',
     enhancers,
   });
+
+  runSaga(rootSaga);
 
   return store;
 }
