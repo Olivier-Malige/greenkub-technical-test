@@ -1,33 +1,56 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface NumbersState {
-  numbers: number[];
-  targetValue: number | null;
-  indices: [number, number] | null;
+  prompt: {
+    numbers: number[];
+    target: number | null;
+  };
+  result: {
+    indices: [number, number] | null;
+    moreThanOneSolution: boolean | null;
+    canAddNumbers: boolean | null;
+  };
+  error: string | null;
 }
 
 const initialState: NumbersState = {
-  numbers: [],
-  targetValue: null,
-  indices: null,
+  prompt: {
+    numbers: [],
+    target: null,
+  },
+  result: {
+    indices: null,
+    moreThanOneSolution: null,
+    canAddNumbers: null,
+  },
+  error: null,
 };
 
 const slice = createSlice({
   name: 'numbers',
   initialState,
   reducers: {
-    setNumbers: (
+    setPrompt: (
       state,
-      action: PayloadAction<{ numbers: number[]; targetValue: number }>
+      action: PayloadAction<{ numbers: number[]; target: number }>
     ) => {
-      state.numbers = action.payload.numbers;
-      state.targetValue = action.payload.targetValue;
+      state.prompt = action.payload;
     },
-    setBestIndices: (state, action: PayloadAction<[number, number]>) => {
-      state.indices = action.payload;
+    setResult: (
+      state,
+      action: PayloadAction<{
+        indices: [number, number];
+        moreThanOneSolution: boolean;
+        canAddNumbers: boolean;
+      }>
+    ) => {
+      state.result = action.payload;
+    },
+    setError: (state, action: PayloadAction<string | null>) => {
+      state.error = action.payload;
     },
   },
 });
 
-export const { setNumbers, setBestIndices } = slice.actions;
+export const { setPrompt, setResult, setError } = slice.actions;
 export default slice.reducer;
