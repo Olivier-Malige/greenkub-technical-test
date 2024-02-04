@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../types';
+import { findNumbersAction } from '../../store/numbers/actions';
 
 function FindNumbers() {
   const dispatch = useDispatch();
@@ -14,14 +15,7 @@ function FindNumbers() {
 
   const handleSetNumbers = () => {
     const parsedNumbers = numbersInput.split(',').map(Number);
-
-    dispatch({
-      type: 'POST_NUMBERS',
-      payload: {
-        numbers: parsedNumbers,
-        target: targetValue,
-      },
-    });
+    dispatch(findNumbersAction( parsedNumbers, Number(targetValue)));
   };
 
   return (

@@ -2,9 +2,11 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import { setBestIndices, setNumbers } from './slice';
 import clientAPI from '../../hooks/clientAPI';
 import { FindTwoNumbersEndpoint } from '../../hooks/clientAPI/numbers/findTwoNumbers';
+import { FIND_NUMBERS } from './constants';
 
-function* postNumbers(action: {
-  type: 'POST_NUMBERS';
+
+function* findNumbers(action: {
+  type: typeof FIND_NUMBERS;
   payload: {
     numbers: number[];
     target: number;
@@ -29,6 +31,6 @@ function* postNumbers(action: {
   );
 }
 
-export function* watchPostNumbers() {
-  yield takeLatest('POST_NUMBERS', postNumbers);
+export function* watchFindNumbers() {
+  yield takeLatest(FIND_NUMBERS, findNumbers);
 }
