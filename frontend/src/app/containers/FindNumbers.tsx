@@ -1,7 +1,11 @@
-import { useState } from 'react';
+import  { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../types';
 import { findNumbersAction } from '../../store/numbers/actions';
+import Input from '../components/Input';
+import { StyledButton } from '../styledComponents/styledComponents';
+
+
 
 function FindNumbers() {
   const dispatch = useDispatch();
@@ -20,25 +24,26 @@ function FindNumbers() {
 
   return (
     <div>
-      <input
+      <Input
+        label="Enter numbers (comma-separated)"
+        error="Numbers must be comma-separated integers"
         type="text"
-        placeholder="Enter numbers (comma-separated)"
         value={numbersInput}
-        onChange={(e) => setNumbersInput(e.target.value)}
+        onChange={(event) => setNumbersInput(event.target.value)}
       />
-      <input
+      <Input
         type="number"
         placeholder="Enter target value"
         value={targetValue}
-        onChange={(e) => setTargetValue(e.target.value)}
+        onChange={(event) => setTargetValue(event.target.value)}
       />
-      <button
+      <StyledButton
         type="submit"
         disabled={!numbersInput || !targetValue}
         onClick={handleSetNumbers}
       >
         Submit
-      </button>
+      </StyledButton>
 
       <p>Numbers: {numbers.join(', ')}</p>
       <p>Target: {target}</p>
@@ -46,5 +51,8 @@ function FindNumbers() {
     </div>
   );
 }
+
+
+
 
 export { FindNumbers };
