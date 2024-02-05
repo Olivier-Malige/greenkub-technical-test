@@ -41,7 +41,7 @@ async function findTwoNumbersEndpoint({
     }
     return {
       success: false,
-      error: `Request ended with status ${error.response.status} : ${error.response.data}`,
+      error: error.response.data?.error?.toString(),
     };
   }
 }

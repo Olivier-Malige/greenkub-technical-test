@@ -33,19 +33,14 @@ function FindNumbers() {
   return (
     <StyledContainer>
       <StyledTitle>Find two numbers</StyledTitle>
-      <div>
-        {error ? (
-          <p>{error}</p>
-        ) : (
-          <NumbersResult
-            numbers={numbers}
-            target={target}
-            indices={indices}
-            canAddNumbers={canAddNumbers}
-            moreThanOneSolution={moreThanOneSolution}
-          />
-        )}
-      </div>
+      <NumbersResult
+        numbers={numbers}
+        target={target}
+        indices={indices}
+        canAddNumbers={canAddNumbers}
+        moreThanOneSolution={moreThanOneSolution}
+        error={error}
+      />
       <div>
         <StyledInput
           type="text"

@@ -9,6 +9,7 @@ interface NumbersResultProps {
   indices: [number, number] | null;
   canAddNumbers: boolean | null;
   moreThanOneSolution: boolean | null;
+  error: string | null;
 }
 
 function NumbersResult({
@@ -17,7 +18,16 @@ function NumbersResult({
   indices,
   canAddNumbers,
   moreThanOneSolution,
+  error,
 }: NumbersResultProps) {
+  if (error) {
+    return (
+      <div>
+        <StyledLabel>Error: </StyledLabel>
+        {error}
+      </div>
+    );
+  }
   return (
     <>
       <div>

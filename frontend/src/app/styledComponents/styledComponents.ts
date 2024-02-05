@@ -14,23 +14,23 @@ export const StyledButton = styled.button`
 
 export const StyledInput = styled.input`
   width: 100%;
-  padding: 12px 20px;
   margin: 8px 0;
-
   line-height: 1.125rem;
   box-sizing: border-box;
+  padding: 10px;
   border-radius: 5px;
-  border: ${({ theme }) => `2px solid ${theme.primary}`};
+  border: ${({ theme }) => `1px solid ${theme.primary}`};
 
-  ::placeholder {
+  &::placeholder {
     color: ${({ theme }) => theme.primary};
   }
 
-  :hover {
-    border: ${({ theme }) => `10px solid ${theme.primary}`};
+  &:hover {
+    padding: 9px;
+    border: ${({ theme }) => `2px solid ${theme.primary}`};
   }
 
-  :focus {
+  &:focus {
     padding: 9px;
     outline: none;
     border: ${({ theme }) => `2px solid ${theme.primary}`};

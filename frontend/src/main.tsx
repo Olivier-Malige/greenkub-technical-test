@@ -5,17 +5,23 @@ import { StrictMode } from 'react';
 import { GlobalStyle } from './styles/global-styles';
 import { configureAppStore } from './store/configureStore';
 import App from './App';
+import CustomThemeProvider from './theme/CustomThemeProvider';
 
 const store = configureAppStore();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <Provider store={store}>
     <HelmetProvider>
-        <StrictMode>
-          <Helmet titleTemplate="%s - Test Technique" defaultTitle="Test Technique" />
-              <App />
+      <StrictMode>
+        <CustomThemeProvider>
+          <Helmet
+            titleTemplate="%s - Test Technique"
+            defaultTitle="Test Technique"
+          />
+          <App />
           <GlobalStyle />
-        </StrictMode>
+        </CustomThemeProvider>
+      </StrictMode>
     </HelmetProvider>
   </Provider>
 );
