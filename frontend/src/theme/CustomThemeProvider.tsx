@@ -1,7 +1,7 @@
 import { ReactNode, useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from './theme';
-import SwitchButton from '../app/components/SwithButton';
+import SwitchButton from '../app/components/SwitchButton';
 
 const StyledContainer = styled.div`
   position: relative;
